@@ -9,9 +9,9 @@ import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const [name, setName] = useState("Random Name");
-  const [email, setEmail] = useState("test@gmail.com");
-  const [password, setPassword] = useState("12345678");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");

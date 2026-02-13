@@ -9,8 +9,8 @@ import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
-  const [email, setEmail] = useState("ankit@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
