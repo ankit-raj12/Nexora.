@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch script.js"
+    "build": "echo 'No build step required'",
+    "start": "node script.js",
+    "dev": "node --watch script.js"
   },
   "keywords": [],
   "author": "",
