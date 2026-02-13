@@ -60,6 +60,7 @@ const Login = () => {
               <input
                 type="email"
                 value={email}
+                required
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 className="w-full pl-12 pr-6 py-4 rounded-[15px] neu-input text-neu-text placeholder-gray-400 outline-none transition-all focus:text-neu-text"
@@ -87,6 +88,7 @@ const Login = () => {
               <input
                 type={`${visible ? "text" : "password"}`}
                 value={password}
+                required
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="w-full pl-12 pr-6 py-4 rounded-[15px] neu-input text-neu-text placeholder-gray-400 outline-none transition-all focus:text-neu-text"

@@ -80,6 +80,7 @@ const Page = () => {
                 type="text"
                 name="Name"
                 value={name}
+                required
                 onChange={(e) => {
                   setName(e.target.value);
                   if (error) setError("");
@@ -98,6 +99,7 @@ const Page = () => {
               <input
                 type="email"
                 name="Email"
+                required
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -130,6 +132,7 @@ const Page = () => {
                 type={`${visible ? "text" : "password"}`}
                 name="Password"
                 value={password}
+                required
                 onChange={(e) => {
                   setPassword(e.target.value);
                   if (error) setError("");
