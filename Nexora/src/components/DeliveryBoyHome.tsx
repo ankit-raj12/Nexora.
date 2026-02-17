@@ -210,7 +210,7 @@ export default function DeliveryBoyHome({
         </div>
 
         {/* Main Reactor Display - Centered */}
-        <div className="flex-1 flex flex-col items-center justify-center relative -mt-16 z-10 p-4">
+        <div className="flex-1 flex flex-col items-center justify-center relative mt-10 z-10 p-4">
           {/* The Reactor Ring */}
           <div className="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
             {/* Expanding Radar Rings Animation */}
@@ -234,7 +234,7 @@ export default function DeliveryBoyHome({
             ))}
 
             {/* Main Center Plate - Neumorphic extruded */}
-            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full neu-flat flex flex-col items-center justify-center relative z-10 shadow-[20px_20px_50px_#babecc,-20px_-20px_50px_#ffffff]">
+            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full neu-flat flex flex-col items-center justify-center relative z-10 ">
               {/* Spinning decorative ring */}
               <motion.div
                 animate={{ rotate: 360 }}
