@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LocationType, OrderInterface } from "./DeliveryBoyHome";
-import { Phone, Send, Bike, BoxIcon, PhoneCall, Sparkles } from "lucide-react";
+import { Phone, Send, Bike, BoxIcon, PhoneCall, Sparkles, AlertCircle } from "lucide-react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -638,9 +638,14 @@ export default function DeliveryTrackingPage({
 
                   <div className="w-full">
                     {OTPError && (
-                      <>
+                       <motion.div
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mb-4 text-xs md:text-sm font-bold text-red-500 flex items-center justify-center gap-2 bg-[#e0e5ec] shadow-[inset_3px_3px_6px_rgba(163,177,198,0.4),inset_-3px_-3px_6px_rgba(255,255,255,0.8)] px-4 py-2.5 rounded-xl border border-red-200/50"
+                      >
+                        <AlertCircle size={16} className="shrink-0" />
                         <span>{OTPError}</span>
-                      </>
+                      </motion.div>
                     )}
                     <button
                       className={`w-full py-3 md:py-4 bg-[#e0e5ec] rounded-xl md:rounded-2xl text-[#667eea] font-black text-sm md:text-base uppercase tracking-wider shadow-[6px_6px_12px_rgba(163,177,198,0.6),-6px_-6px_12px_rgba(255,255,255,0.5)] active:shadow-[inset_4px_4px_8px_rgba(163,177,198,0.5),inset_-4px_-4px_8px_rgba(255,255,255,0.9)] transition-all hover:scale-[1.02] flex items-center justify-center gap-2 ${verifyingOTP ? "cursor-not-allowed" : "cursor-pointer"}`}

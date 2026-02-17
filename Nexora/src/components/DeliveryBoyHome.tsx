@@ -118,6 +118,14 @@ export default function DeliveryBoyHome({
   useEffect(() => {
     const socket = getSocket();
     const handleAcceptAssignment = (order: OrderInterface) => {
+
+      setAssignments((prev) =>
+        prev.filter((assign) => {
+          const assignOrderId = (assign.order as unknown as OrderInterface)?._id || assign.order;
+          return assignOrderId?.toString() !== order._id?.toString();
+        })
+      );
+
       if (user && order.assignedDeliveryBoy?._id === user._id) {
         setActiveOrder(order);
         setuserLocation({
