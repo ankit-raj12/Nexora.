@@ -87,7 +87,7 @@ export default function Listings() {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => router.back()}
+          onClick={() => router.push("/")}
           className="neu-button mb-4 md:mb-6 p-2 md:p-3 rounded-full text-slate-400 hover:text-[#667eea] transition-colors flex items-center justify-center"
         >
           <ArrowLeft size={20} className="md:w-6 md:h-6" strokeWidth={2.5} />
