@@ -264,11 +264,11 @@ export default function DeliveryTrackingPage({
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-sm md:text-base font-bold text-[#2d3748] truncate">
-                    {activeOrder.assignedDeliveryBoy?.name || "Tracking..."}
+                    {activeOrder.user?.name || "Tracking..."}
                   </h4>
                   <p className="text-[10px] md:text-[13px] text-[#718096] flex items-center gap-1">
                     <PhoneCall size={10} className="md:w-3 md:h-3" /> Phone:{" "}
-                    {activeOrder.assignedDeliveryBoy?.mobile}
+                    {activeOrder.user?.mobile}
                   </p>
                 </div>
               </div>

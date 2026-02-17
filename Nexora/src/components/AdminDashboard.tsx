@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import AdminDashboardClient from "./AdminDashboardClient";
 import connectDB from "@/lib/database";
 import Order from "@/models/order.model";
@@ -102,6 +103,7 @@ const AdminDashboard = async () => {
   return (
     <div className="bg-[#e0e5ec] min-h-screen">
       <AdminDashboardClient data={parsedData} />
+      <Footer />
     </div>
   );
 };

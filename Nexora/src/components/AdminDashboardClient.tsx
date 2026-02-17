@@ -66,7 +66,7 @@ export default function AdminDashboardClient({
           : data.totalOrders;
 
   return (
-    <div className="min-h-screen bg-[#e0e5ec] text-slate-700 font-sans pt-20 md:pt-30">
+    <div className="min-h-screen bg-[#e0e5ec] text-slate-700 font-sans pt-4 md:pt-4">
       <div className="flex flex-col lg:flex-row min-h-screen relative">
         {/* Main Content */}
         <main className="flex-1 min-w-0 p-3 md:p-4 lg:p-8 overflow-y-auto">

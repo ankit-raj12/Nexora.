@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Search } from "lucide-react";
+import Footer from "./Footer";
 
 const UserDashboard = () => {
   const searchParams = useSearchParams();
@@ -124,6 +125,7 @@ const UserDashboard = () => {
           </motion.div>
         )}
         </section>
+        <Footer />
       </div>
     </>
   );

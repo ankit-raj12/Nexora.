@@ -18,6 +18,7 @@ import {
 import { useSelector } from "react-redux";
 import DeliveryTrackingPage from "./DeliveryTrackingPage";
 import { UserInterface } from "@/models/user.model";
+import Footer from "./Footer";
 
 export interface LocationType {
   latitude: number;
@@ -68,12 +69,8 @@ export default function DeliveryBoyHome({
   const user = useSelector((state: RootState) => state.user.userData);
   const [activeOrder, setActiveOrder] = useState<OrderInterface | null>(null);
   const [userLocation, setuserLocation] = useState<LocationType | null>(null);
-  const [todayTotalEarning, setTodayTotalEarning] = useState(
-    todayOrderData.todayEarning,
-  );
-  const [ordersCount, setOrdersCount] = useState(
-    todayOrderData.todayOrders,
-  );
+  const [todayTotalEarning] = useState(todayOrderData.todayEarning);
+  const [ordersCount] = useState(todayOrderData.todayOrders);
 
   useEffect(() => {
     const socket = getSocket();
@@ -120,17 +117,21 @@ export default function DeliveryBoyHome({
 
   useEffect(() => {
     const socket = getSocket();
-    socket.on("accept-assignment", (order: OrderInterface) => {
-      setActiveOrder(order);
-      setuserLocation({
-        latitude: order.address.latitude as unknown as number,
-        longitude: order.address.longitude as unknown as number,
-      });
-    });
-    return () => {
-      socket.off("accept-assignment");
+    const handleAcceptAssignment = (order: OrderInterface) => {
+      if (user && order.assignedDeliveryBoy?._id === user._id) {
+        setActiveOrder(order);
+        setuserLocation({
+          latitude: order.address.latitude as unknown as number,
+          longitude: order.address.longitude as unknown as number,
+        });
+      }
     };
-  }, []);
+
+    socket.on("accept-assignment", handleAcceptAssignment);
+    return () => {
+      socket.off("accept-assignment", handleAcceptAssignment);
+    };
+  }, [user]);
 
   const handleAccept = async (id: string) => {
     try {
@@ -153,12 +154,9 @@ export default function DeliveryBoyHome({
 
   const handleReject = async (id: string) => {
     try {
-      await fetch(
-        `/api/delivery/assignment/${id}/reject-assignment`,
-        {
-          method: "POST",
-        },
-      );
+      await fetch(`/api/delivery/assignment/${id}/reject-assignment`, {
+        method: "POST",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -275,6 +273,7 @@ export default function DeliveryBoyHome({
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   } else if (
@@ -446,6 +445,7 @@ export default function DeliveryBoyHome({
             )}
           </AnimatePresence>
         </div>
+        <Footer />
       </div>
     );
   }
